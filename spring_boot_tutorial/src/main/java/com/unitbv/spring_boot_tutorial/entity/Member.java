@@ -1,22 +1,21 @@
 package com.unitbv.spring_boot_tutorial.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.UUID;
+
 @Data
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Table
 public class Member {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private String id = UUID.randomUUID().toString();
 
     private String name;
 

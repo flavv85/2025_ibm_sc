@@ -14,8 +14,7 @@ import java.util.UUID;
 @Table
 public class Review {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    private UUID id = UUID.randomUUID();
     @ManyToOne
     @JoinColumn(name = "coach_id")
     private Coach coach;

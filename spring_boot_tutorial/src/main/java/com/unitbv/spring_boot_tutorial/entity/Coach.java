@@ -4,9 +4,10 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
+
 
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Data
@@ -15,10 +16,10 @@ import java.util.List;
 @AllArgsConstructor
 public class Coach {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String Id;
+    private String id = UUID.randomUUID().toString();
+
     private String name;
 
-    @OneToMany(mappedBy = "fitnessClass",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "coach",cascade = CascadeType.ALL)
     private List<FitnessClass> fitnessClasses;
 }

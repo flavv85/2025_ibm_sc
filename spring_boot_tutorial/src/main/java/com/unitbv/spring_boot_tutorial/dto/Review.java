@@ -15,8 +15,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @Table
 public class Review {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     private String coach_id;

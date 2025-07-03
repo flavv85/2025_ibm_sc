@@ -4,19 +4,19 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Table
 public class FitnessClass {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private String id = UUID.randomUUID().toString();
 
     private LocalDateTime startTime;
     private LocalDateTime endTime;
