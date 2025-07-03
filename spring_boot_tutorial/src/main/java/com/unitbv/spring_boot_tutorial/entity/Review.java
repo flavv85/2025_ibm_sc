@@ -1,13 +1,14 @@
 package com.unitbv.spring_boot_tutorial.entity;
 
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
+
 
 import java.util.UUID;
-
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,6 +16,7 @@ import java.util.UUID;
 public class Review {
     @Id
     private UUID id = UUID.randomUUID();
+
     @ManyToOne
     @JoinColumn(name = "coach_id")
     private Coach coach;
