@@ -35,5 +35,9 @@ public class FitnessClass {
 
     private boolean isReady;
 
+    @Transient
+    public void setIsReady(boolean isReady) {
+        this.isReady = isReady;
+    }
 
 }
