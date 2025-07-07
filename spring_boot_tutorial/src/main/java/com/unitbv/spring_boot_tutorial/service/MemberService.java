@@ -30,7 +30,7 @@ public class MemberService {
     public List<Member>findByFitnessClassId(String fitnessClassId) {
         return memberRepository.findAllByFitnessClasses_Id(fitnessClassId);
     }
-
+    //UPDATE FUNCTION WIPPPPPPPPPPP
     public Optional<Member> updateNickname(String memberId, String newNickname) {
         Optional<Member> optionalMember = memberRepository.findById(memberId);
         optionalMember.ifPresent(member -> {
@@ -43,7 +43,7 @@ public class MemberService {
     public void deleteById(String memberId) {
         memberRepository.deleteById(memberId);
     }
-
+    ////DELETE FROM A SINGLE CLASS WIPPPPPPPPP
     public void deleteAllMembersFromFitnessClass(String fitnessClassId) {
         List<Member> members = memberRepository.findAllByFitnessClasses_Id(fitnessClassId);
 
