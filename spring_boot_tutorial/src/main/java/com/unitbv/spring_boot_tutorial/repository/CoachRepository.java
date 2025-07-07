@@ -7,13 +7,14 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface CoachRepository extends JpaRepository<Coach, String> {
-    List<Coach>findByNameContainingIgnoreCase(String name);
+    Optional<Coach> findByNameContainingIgnoreCase(String name);
     @Query("SELECT r.coach FROM Review r GROUP BY r.coach HAVING AVG(r.mark) > 8")
-    List<Coach> findCoachesWithAvgMarkAbove8();
+    Optional<Coach> findCoachesWithAvgMarkAbove8();
     @Query("SELECT r.coach FROM Review r GROUP BY r.coach HAVING AVG(r.mark) >= :minMark")
-    List<Coach> findCoachesWithAvgMarkAbove(@Param("minMark") double minMark);
+    Optional<Coach> findCoachesWithAvgMarkAbove(@Param("minMark") double minMark);
 
 }
