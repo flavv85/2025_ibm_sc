@@ -24,36 +24,36 @@ public class FitnessClassController {
         return ResponseEntity.ok(fitnessClass);
     }
 
-    @PostMapping("create2")
-    public ResponseEntity<FitnessClass> createFitnessClass() {
-        FitnessClass fitnessClass = new FitnessClass();
-
-        fitnessClass.setId(UUID.randomUUID().toString());
-
-        fitnessClass.setStartTime(LocalDateTime.of(2025, 7, 8, 10, 0));
-        fitnessClass.setEndTime(LocalDateTime.of(2025, 7, 8, 12, 0));
-
-        Coach coach = new Coach();
-        coach.setId("241e38df-0cf3-4145-8af4-33ffb9fe6ba0");
-        coach.setName("Marcel");
-        fitnessClass.setCoach(coach);
-
-        Member m1 = new Member();
-        m1.setId("m1");
-        m1.setName("Alice");
-
-
-        Set<Member> members = new HashSet<>();
-        members.add(m1);
-
-        fitnessClass.setMembers(members);
-
-        fitnessClass.setIsReady(members.size() >= 3);
-
-        fitnessClassService.saveFitnessClass(fitnessClass);
-
-        return ResponseEntity.ok(fitnessClass);
-    }
+//    @PostMapping("create2")
+//    public ResponseEntity<FitnessClass> createFitnessClass() {
+//        FitnessClass fitnessClass = new FitnessClass();
+//
+//        fitnessClass.setId(UUID.randomUUID().toString());
+//
+//        fitnessClass.setStartTime(LocalDateTime.of(2025, 7, 8, 10, 0));
+//        fitnessClass.setEndTime(LocalDateTime.of(2025, 7, 8, 12, 0));
+//
+//        Coach coach = new Coach();
+//        coach.setId("241e38df-0cf3-4145-8af4-33ffb9fe6ba0");
+//        coach.setName("Marcel");
+//        fitnessClass.setCoach(coach);
+//
+//        Member m1 = new Member();
+//        m1.setId("m1");
+//        m1.setName("Alice");
+//
+//
+//        Set<Member> members = new HashSet<>();
+//        members.add(m1);
+//
+//        fitnessClass.setMembers(members);
+//
+//        fitnessClass.setIsReady(members.size() >= 3);
+//
+//        fitnessClassService.saveFitnessClass(fitnessClass);
+//
+//        return ResponseEntity.ok(fitnessClass);
+//    }
 
     @GetMapping
     public ResponseEntity<List<FitnessClass>> getAllFitnessClasses() {
