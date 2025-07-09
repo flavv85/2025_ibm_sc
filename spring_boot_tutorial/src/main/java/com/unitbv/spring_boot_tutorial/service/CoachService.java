@@ -30,4 +30,12 @@ public class CoachService {
     public Coach findCoachById(String coachId){
         return coachRepository.getReferenceById(coachId);
     }
+
+    public Optional<Coach> getCoachesWithAverageMark(double Mark){
+        return coachRepository.findCoachesWithAvgMarkAbove(Mark);
+    }
+
+    public Optional<Coach> getCoachesWithAverageMarkAboveEight() {
+        return coachRepository.findCoachesWithAvgMarkAbove8();
+    }
 }

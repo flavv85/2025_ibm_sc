@@ -13,7 +13,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table
-public class Review {
+public class Review{
     @Id
     private UUID id = UUID.randomUUID();
 

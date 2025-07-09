@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/coach")
@@ -24,6 +25,18 @@ public class CoachController {
         Coach coach = new Coach();
         coach.setName(name);
         coachService.saveCoach(coach);
+    }
+
+    @GetMapping("/average/{mark}")
+    public Optional<Coach> getCoachWithAverageMark(@PathVariable double mark) {
+        Optional<Coach> Coaches=coachService.getCoachesWithAverageMark(mark);
+        return Coaches;
+    }
+
+    @GetMapping("/average/>8")
+    public Optional<Coach> getCoachWithAverageMark() {
+        Optional<Coach> Coaches=coachService.getCoachesWithAverageMarkAboveEight();
+        return Coaches;
     }
 
 }

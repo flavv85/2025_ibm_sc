@@ -13,7 +13,7 @@ import java.util.Optional;
 public class MemberService {
 
     @Autowired
-    private MemberRepository memberRepository;
+    MemberRepository memberRepository;
 
     public void save(Member member) {
         if (member.getReviews() != null && !member.getReviews().isEmpty()) {
@@ -30,7 +30,7 @@ public class MemberService {
     public List<Member>findByFitnessClassId(String fitnessClassId) {
         return memberRepository.findAllByFitnessClasses_Id(fitnessClassId);
     }
-    //UPDATE FUNCTION WIPPPPPPPPPPP
+    ////UPDATE FUNCTION WIPPPPPPPPPPP
     public Optional<Member> updateNickname(String memberId, String newNickname) {
         Optional<Member> optionalMember = memberRepository.findById(memberId);
         optionalMember.ifPresent(member -> {
